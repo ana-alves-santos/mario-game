@@ -2,6 +2,9 @@
 
 A game where Mario jumps to avoid incoming pipes. Survive as long as possible and score points over time.
 
+<img width="1362" height="586" alt="image" src="https://github.com/user-attachments/assets/a39022eb-3097-4823-9988-9d4e48bf05b0" />
+
+
 ## 🎮 How to Play
 
 - Press any key (PC) or tap the screen (mobile) to make Mario jump.
