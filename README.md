@@ -3,7 +3,7 @@
 A game where Mario jumps to avoid incoming pipes. Survive as long as possible and score points over time.
 
 <p align="">
-  <a href https://ana-alves-santos.github.io/mario-game/"target="_blank">
+  <a href="https://ana-alves-santos.github.io/mario-game/"target="_blank">
     play
   </a>
 </p>
