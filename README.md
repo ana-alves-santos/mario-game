@@ -8,7 +8,8 @@ A game where Mario jumps to avoid incoming pipes. Survive as long as possible an
   </a>
 </p>
   
-<img width="1362" height="586" alt="image" src="https://github.com/user-attachments/assets/a39022eb-3097-4823-9988-9d4e48bf05b0" />
+<img width="1363" height="591" alt="image" src="https://github.com/user-attachments/assets/d9813c40-62f1-473e-808a-548c9354c2b4" />
+
 
 
 ## 🎮 How to Play
