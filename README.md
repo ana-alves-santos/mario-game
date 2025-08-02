@@ -13,7 +13,7 @@ A game where Mario jumps to avoid incoming pipes. Survive as long as possible an
 
 ## 🎮 How to Play
 
-- Press any key (PC) or tap the screen (mobile) to make Mario jump.
+- Press any key (PC)  to make Mario jump.
 
 - Avoid colliding with pipes.
 
