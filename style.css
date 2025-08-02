@@ -1,97 +1,111 @@
 * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #a0d8ef, #7ac7c4);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .game-board {
-    width: 100%;
-    height: 500px;
-    border-bottom: 15px solid rgb(35, 160, 35);
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(#87ceeb, #e0f6ff);
+  width: 100%;
+  height: 500px;
+  border-bottom: 15px solid #3ea55f;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(#87ceeb, #d4f1f9);
 }
 
 .pipe {
-    position: absolute;
-    bottom: 0;
-    width: 80px;
-    animation: pipe-animation 1.5s infinite linear;
+  position: absolute;
+  bottom: 0;
+  width: 80px;
+  animation: pipe-animation 1.5s infinite linear;
+  left: 100%;
 }
 
 .mario {
-    width:  150px;
-    position: absolute;
-    bottom: 0;
-
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  z-index: 10;
 }
 
 .jump {
-    animation: jump 500ms ease-out;
+  animation: jump 500ms ease-out;
 }
 
 .clouds {
-    position: absolute;
-    width: 550px;
-    animation: clouds-animation 20s infinite linear;
+  position: absolute;
+  width: 550px;
+  animation: clouds-animation 20s infinite linear;
+  right: -550px;
+  top: 20px;
 }
-
 
 .score {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 24px;
-  font-family: 'Courier New', monospace;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(62, 165, 95, 0.8);
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: 12px;
+  color: #eaf6f6;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
   z-index: 1000;
+  user-select: none;
 }
 
-/* animação */
+.game-over-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  font-weight: bold;
+  color: #1a4d3e;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-shadow: 2px 2px 5px #a0d8ef;
+  z-index: 1000;
+  user-select: none;
+  pointer-events: none;
+  display: none;
+}
+
 @keyframes pipe-animation {
-    from {
-    right: -80px;
-  } 
-
-    to {
-        right: 100%;
-    }
-
+  from {
+    left: 100%;
+  }
+  to {
+    left: -80px;
+  }
 }
 
 @keyframes jump {
-    0% {
-      bottom: 0;
-    }
-
-    40% {
-      bottom: 180px;
-    }
-
-    50% {
-      bottom: 180px;
-
-    }
-    
-    50% {
-      bottom: 180px;
-
-    }
-    
-    100% {
-      bottom: 0;
-    }
+  0% {
+    bottom: 0;
+  }
+  40% {
+    bottom: 180px;
+  }
+  50% {
+    bottom: 180px;
+  }
+  100% {
+    bottom: 0;
+  }
 }
 
 @keyframes clouds-animation {
-  from{
+  from {
     right: -550px;
   }
-
   to {
     right: 100%;
   }

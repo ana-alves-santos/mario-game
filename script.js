@@ -1,13 +1,11 @@
-// Seleciona os elementos da tela
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
 const scoreDisplay = document.getElementById('score');
+const gameOverMessage = document.querySelector('.game-over-message');
 
-// Variáveis de controle
-let isGameOver = false; // verifica se o jogo acabou
-let score = 0; // pontuação
+let isGameOver = false;
+let score = 0;
 
-// Atualiza a pontuação a cada 100 milissegundos enquanto o jogo está ativo
 const scoreLoop = setInterval(() => {
   if (!isGameOver) {
     score++;
@@ -15,62 +13,50 @@ const scoreLoop = setInterval(() => {
   }
 }, 100);
 
-// Função de pulo
 const jump = () => {
-  if (isGameOver) return; // se perdeu, não pula mais
-
-  // Adiciona classe que faz o Mario "saltar"
+  if (isGameOver) return;
   mario.classList.add('jump');
-
-  // Remove a classe após 500ms para poder pular novamente
-  setTimeout(() => {
-    mario.classList.remove('jump');
-  }, 500);
+  setTimeout(() => mario.classList.remove('jump'), 500);
 };
 
-// Loop principal do jogo (verifica colisões a cada 10ms)
 const loop = setInterval(() => {
-  const pipePosition = pipe.offsetLeft; // posição do cano
-  const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', ''); // posição do Mario
+  const pipePos = pipe.offsetLeft;
+  const marioPos = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-  // Detecta colisão com base nas posições horizontal e vertical
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
-    // Para a animação do cano
+  if (pipePos <= 120 && pipePos > 0 && marioPos < 80) {
     pipe.style.animation = 'none';
-    pipe.style.left = `${pipePosition}px`;
+    pipe.style.left = `${pipePos}px`;
 
-    // Para a animação do Mario
     mario.style.animation = 'none';
-    mario.style.bottom = `${marioPosition}px`;
+    mario.style.bottom = `${marioPos}px`;
 
-    // Altera a imagem do Mario para o "game over"
-    mario.src = './assets/game-over.png';
-    mario.style.width = '75px';
-    mario.style.marginLeft = '50px';
+    mario.style.display = 'none';
+    pipe.style.display = 'none';
 
-    // Marca o fim do jogo
+    gameOverMessage.style.display = 'block';
+
     isGameOver = true;
 
-    // Para os loops
     clearInterval(loop);
     clearInterval(scoreLoop);
   }
 }, 10);
 
-// Evento para pular ou reiniciar usando teclado (PC)
-document.addEventListener('keydown', () => {
+
+document.addEventListener('keydown', (event) => {
   if (isGameOver) {
-    location.reload(); // reinicia o jogo
+    location.reload();
   } else {
-    jump(); // executa o pulo
+    if (event.code === 'Space' || event.code === 'ArrowUp') {
+      jump();
+    }
   }
 });
 
-// Evento para pular ou reiniciar usando toque (mobile)
-document.addEventListener('touchstart', () => {
+document.addEventListener('click', () => {
   if (isGameOver) {
-    location.reload(); // reinicia no celular
+    location.reload();
   } else {
-    jump(); // executa o pulo no celular
+    jump();
   }
 });

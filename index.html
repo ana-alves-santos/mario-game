@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Jump</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mario Jump</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
-      <div class="game-board">
-        <img src="./assets/clouds.png" class="clouds">
-        <img src="./assets/mario.gif" class="mario">
-        <img src="./assets/pipe.png" class="pipe">
-      </div>
- 
-      <div class="score">Pontuação: <span id="score">0</span></div>
+  <div class="game-board">
+    <img src="./assets/clouds.png" class="clouds" />
+    <img src="./assets/mario.gif" class="mario" />
+    <img src="./assets/pipe.png" class="pipe" />
 
+    <div class="game-over-message" style="display:none;">
+      Game Over
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="score">
+    Pontuação: <span id="score">0</span>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
